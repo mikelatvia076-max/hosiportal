@@ -41,11 +41,33 @@
 
       <button type="submit" class="login-btn" id="loginBtn">Login</button>
       <p id="loginMessage" role="alert"></p>
+      <button type="button" class="link-btn" id="forgotLink">Forgot password?</button>
+    </form>
+
+    <form id="forgotForm" hidden>
+      <p class="panel-hint">Enter your username and the email the hospital registered for you. The administrator will give you a new temporary password.</p>
+      <div class="input-box"><i class="fa fa-user"></i>
+        <input type="text" id="fUser" placeholder="Username" autocapitalize="none" required></div>
+      <div class="input-box"><i class="fa fa-envelope"></i>
+        <input type="email" id="fEmail" placeholder="Email" required></div>
+      <button type="submit" class="login-btn" id="fBtn">Send request</button>
+      <p id="forgotMessage" role="alert"></p>
+      <button type="button" class="link-btn" id="backLink">Back to login</button>
+    </form>
+
+    <form id="changeForm" hidden>
+      <p class="panel-hint">You are using a temporary password. Choose your own to continue (8+ characters, letters and numbers).</p>
+      <div class="input-box"><i class="fa fa-lock"></i>
+        <input type="password" id="nPw" placeholder="New password" autocomplete="new-password" minlength="8" required></div>
+      <div class="input-box"><i class="fa fa-lock"></i>
+        <input type="password" id="nPw2" placeholder="Confirm new password" autocomplete="new-password" minlength="8" required></div>
+      <button type="submit" class="login-btn" id="cBtn">Save password and continue</button>
+      <p id="changeMessage" role="alert"></p>
     </form>
 
     <p class="access-note">
       <i class="fa fa-shield-halved"></i>
-      Accounts are issued by hospital administration. Forgot your password? Ask the administrator to reset it.
+      Accounts are issued by hospital administration. Forgot your password? Use the link above or ask the administrator.
     </p>
 
   </div>
