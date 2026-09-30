@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>WELCOME TO AGNES MEMORIAL HOSPITAL CENTER</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --deep: #0b4f5c;
+            --deeper: #052b33;
+            --teal: #14a3a8;
+            --aqua: #7fdcd8;
+            --mist: #e6f4f5;
+            --gold: #f0b94a;
+            --coral: #ff7a6b;
+            --ink: #12303a;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html, body { height: 100%; overflow: hidden; overscroll-behavior: none; }
+
+        body {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            font-family: "Nunito Sans", "Segoe UI", Arial, sans-serif;
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(8px, 2vh, 24px) clamp(10px, 3vw, 24px);
+            position: relative;
+            background: linear-gradient(135deg, #052b33, #0b4f5c, #14a3a8, #0b4f5c);
+            background-size: 300% 300%;
+            animation: bgshift 18s ease infinite;
+        }
+
+        @keyframes bgshift {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ---------- floating background decorations ---------- */
+        .floaters { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+
+        .floaters span {
+            position: absolute;
+            bottom: -80px;
+            color: rgba(255, 255, 255, 0.14);
+            animation: rise linear infinite;
+        }
+
+        .floaters span:nth-child(1)  { left: 6%;  font-size: 34px; animation-duration: 22s; animation-delay: 0s; }
+        .floaters span:nth-child(2)  { left: 16%; font-size: 22px; animation-duration: 17s; animation-delay: 3s; }
+        .floaters span:nth-child(3)  { left: 27%; font-size: 48px; animation-duration: 28s; animation-delay: 1s; }
+        .floaters span:nth-child(4)  { left: 38%; font-size: 26px; animation-duration: 19s; animation-delay: 6s; }
+        .floaters span:nth-child(5)  { left: 49%; font-size: 40px; animation-duration: 25s; animation-delay: 2s; }
+        .floaters span:nth-child(6)  { left: 60%; font-size: 24px; animation-duration: 18s; animation-delay: 8s; }
+        .floaters span:nth-child(7)  { left: 71%; font-size: 52px; animation-duration: 30s; animation-delay: 4s; }
+        .floaters span:nth-child(8)  { left: 82%; font-size: 30px; animation-duration: 21s; animation-delay: 7s; }
+        .floaters span:nth-child(9)  { left: 91%; font-size: 36px; animation-duration: 24s; animation-delay: 0.5s; }
+        .floaters span:nth-child(10) { left: 44%; font-size: 20px; animation-duration: 16s; animation-delay: 10s; }
+
+        @keyframes rise {
+            0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10%  { opacity: 1; }
+            90%  { opacity: 1; }
+            100% { transform: translateY(-115vh) rotate(360deg); opacity: 0; }
+        }
+
+        .orb { position: fixed; border-radius: 50%; filter: blur(70px); z-index: 0; pointer-events: none; }
+        .orb.one { width: 380px; height: 380px; background: rgba(127, 220, 216, 0.35); top: -120px; left: -100px; }
+        .orb.two { width: 320px; height: 320px; background: rgba(240, 185, 74, 0.22); bottom: 20px; right: -90px; }
+
+        /* ---------- card (always fits the screen) ---------- */
+        .card {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 660px;
+            transform-origin: center center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: clamp(20px, 4vh, 32px);
+            padding: 0 clamp(16px, 4vw, 40px) clamp(14px, 3vh, 34px);
+            text-align: center;
+            box-shadow:
+                0 40px 80px -30px rgba(0, 0, 0, 0.55),
+                0 0 0 6px rgba(255, 255, 255, 0.12);
+            overflow: hidden;
+        }
+
+        .card-header {
+            align-self: stretch;
+            margin: 0 calc(-1 * clamp(16px, 4vw, 40px));
+            padding: clamp(14px, 4vh, 40px) clamp(14px, 4vw, 40px) clamp(20px, 4.5vh, 40px);
+            background:
+                radial-gradient(circle at 85% 20%, rgba(240,185,74,0.35), transparent 40%),
+                linear-gradient(135deg, var(--deeper), var(--deep) 65%, var(--teal));
+            color: #fff;
+            position: relative;
+        }
+
+        .card-header::after {
+            content: "";
+            position: absolute;
+            left: 0; right: 0; bottom: -1px;
+            height: clamp(14px, 3vh, 30px);
+            background: #fff;
+            clip-path: ellipse(60% 100% at 50% 100%);
+        }
+
+        .logo-wrap {
+            --size: clamp(56px, 13vh, 116px);
+            width: var(--size); height: var(--size);
+            margin: 0 auto clamp(8px, 2vh, 18px);
+            border-radius: 50%;
+            background: #fff;
+            display: grid;
+            place-items: center;
+            border: clamp(3px, 0.6vh, 5px) solid var(--gold);
+            box-shadow: 0 0 0 6px rgba(255,255,255,0.18), 0 12px 26px rgba(0,0,0,0.3);
+            animation: glow 3.2s ease-in-out infinite;
+        }
+
+        .logo-wrap img { width: 66%; height: 66%; object-fit: contain; }
+        .logo-wrap .fallback { font-size: calc(var(--size) * 0.4); color: var(--coral); }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 0 6px rgba(255,255,255,0.18), 0 12px 26px rgba(0,0,0,0.3); }
+            50%      { box-shadow: 0 0 0 12px rgba(255,255,255,0.05), 0 12px 36px rgba(240,185,74,0.55); }
+        }
+
+        h1.shine-title {
+            font-family: "Fraunces", Georgia, "Times New Roman", serif;
+            font-weight: 800;
+            font-size: clamp(1.05rem, min(4.6vw, 4.2vh), 2.1rem);
+            line-height: 1.2;
+            letter-spacing: 0.02em;
+            background: linear-gradient(100deg, #fff 30%, var(--gold) 45%, #fff 60%);
+            background-size: 250% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            animation: shine 4.5s linear infinite;
+        }
+
+        @keyframes shine {
+            0%   { background-position: 130% 0; }
+            100% { background-position: -130% 0; }
+        }
+
+        .motto {
+            margin-top: clamp(4px, 1vh, 12px);
+            font-size: clamp(0.85rem, 2.2vh, 1.1rem);
+            font-style: italic;
+            color: var(--aqua);
+        }
+
+        .motto i { color: var(--coral); margin: 0 6px; }
+
+        /* ---------- heartbeat ---------- */
+        .pulse {
+            display: block;
+            width: 100%;
+            max-width: 340px;
+            height: clamp(28px, 6vh, 58px);
+            margin: clamp(4px, 1.5vh, 20px) auto 0;
+            flex-shrink: 0;
+        }
+
+        .pulse path {
+            fill: none;
+            stroke: var(--coral);
+            stroke-width: 3.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 520;
+            stroke-dashoffset: 520;
+            animation: beat 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 6px rgba(255,122,107,0.6));
+        }
+
+        @keyframes beat {
+            0%   { stroke-dashoffset: 520; }
+            60%  { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -520; }
+        }
+
+        /* ---------- button ---------- */
+        .btn-wrap { position: relative; display: inline-block; margin: clamp(8px, 2vh, 18px) 0 0; max-width: 100%; }
+
+        .btn-wrap::before {
+            content: "";
+            position: absolute;
+            inset: -7px;
+            border-radius: 999px;
+            border: 2px solid var(--teal);
+            opacity: 0;
+            animation: ring 2.4s ease-out infinite;
+        }
+
+        @keyframes ring {
+            0%   { transform: scale(0.94); opacity: 0.8; }
+            100% { transform: scale(1.12); opacity: 0; }
+        }
+
+        .login-btn {
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(8px, 1.5vh, 14px);
+            padding: clamp(10px, 2.2vh, 18px) clamp(20px, 5vw, 40px);
+            font-family: inherit;
+            font-size: clamp(0.95rem, 2.4vh, 1.15rem);
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            background: linear-gradient(135deg, var(--deep), var(--teal));
+            border-radius: 999px;
+            box-shadow: 0 14px 28px -10px rgba(11, 79, 92, 0.85), inset 0 1px 0 rgba(255,255,255,0.35);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .login-btn .icon-bubble {
+            width: clamp(28px, 4.6vh, 36px); height: clamp(28px, 4.6vh, 36px);
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: grid; place-items: center;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .login-btn .arrow { transition: transform 0.2s ease; }
+
+        .login-btn::after {
+            content: "";
+            position: absolute;
+            top: 0; left: -80%;
+            width: 50%; height: 100%;
+            background: linear-gradient(100deg, transparent, rgba(255,255,255,0.45), transparent);
+            transform: skewX(-20deg);
+            animation: sweep 3.6s ease-in-out infinite;
+        }
+
+        @keyframes sweep {
+            0%, 55% { left: -80%; }
+            100%    { left: 140%; }
+        }
+
+        .login-btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 20px 34px -10px rgba(5, 43, 51, 0.9); }
+        .login-btn:hover .arrow { transform: translateX(5px); }
+        .login-btn:active { transform: translateY(0) scale(0.99); }
+        .login-btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 6px; }
+
+        /* ---------- feature chips ---------- */
+        .features {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(6px, 1.5vw, 14px);
+            margin-top: clamp(12px, 3vh, 30px);
+        }
+
+        .feature {
+            background: var(--mist);
+            border-radius: clamp(12px, 2vh, 18px);
+            padding: clamp(6px, 1.6vh, 16px) 6px;
+            font-weight: 700;
+            font-size: clamp(0.7rem, 1.9vh, 0.92rem);
+            color: var(--deeper);
+            border-bottom: 3px solid var(--teal);
+        }
+
+        .feature:nth-child(2) { border-bottom-color: var(--gold); }
+        .feature:nth-child(3) { border-bottom-color: var(--coral); }
+
+        .feature i {
+            display: block;
+            font-size: clamp(1rem, 3.2vh, 1.6rem);
+            margin-bottom: clamp(2px, 0.8vh, 8px);
+            color: var(--deep);
+        }
+
+        .feature:nth-child(2) i { color: #c98d14; }
+        .feature:nth-child(3) i { color: var(--coral); }
+
+        /* ---------- mission ---------- */
+        .mission {
+            width: 100%;
+            margin-top: clamp(10px, 2.4vh, 26px);
+            padding: clamp(8px, 1.8vh, 18px) 16px;
+            border-radius: clamp(12px, 2vh, 18px);
+            background: linear-gradient(135deg, #f3fafa, #fff8ea);
+            border: 1px dashed var(--teal);
+            font-size: clamp(0.78rem, 2vh, 0.98rem);
+            color: #3d5f68;
+        }
+
+        .mission strong { color: var(--deeper); font-family: "Fraunces", Georgia, serif; }
+        .mission i { color: var(--coral); margin-right: 6px; }
+
+        /* ---------- waves ---------- */
+        .waves { position: fixed; left: 0; right: 0; bottom: 0; height: clamp(50px, 12vh, 100px); z-index: 1; pointer-events: none; overflow: hidden; }
+        .waves svg { position: absolute; bottom: 0; width: 200%; height: 100%; animation: drift 14s linear infinite; }
+        .waves svg.back { opacity: 0.35; animation-duration: 22s; animation-direction: reverse; }
+        .waves svg.front { opacity: 0.55; }
+
+        @keyframes drift { to { transform: translateX(-50%); } }
+
+        /* ---------- short screens: drop extras so everything still fits ---------- */
+        @media (max-height: 640px) {
+            .features { display: none; }
+        }
+
+        @media (max-height: 500px) {
+            .mission, .pulse { display: none; }
+            .card-header { padding-bottom: 22px; }
+        }
+
+        /* phones in landscape: header and button side by side */
+        @media (max-height: 430px) and (orientation: landscape) {
+            .motto { display: none; }
+            .logo-wrap { --size: 44px; margin-bottom: 6px; }
+        }
+
+        @media (max-width: 380px) {
+            .login-btn .arrow { display: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .pulse path { stroke-dashoffset: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+
+    <div class="floaters" aria-hidden="true">
+        <span><i class="fa-solid fa-plus"></i></span>
+        <span><i class="fa-solid fa-heart-pulse"></i></span>
+        <span><i class="fa-solid fa-plus"></i></span>
+        <span><i class="fa-solid fa-stethoscope"></i></span>
+        <span><i class="fa-solid fa-plus"></i></span>
+        <span><i class="fa-solid fa-pills"></i></span>
+        <span><i class="fa-solid fa-plus"></i></span>
+        <span><i class="fa-solid fa-syringe"></i></span>
+        <span><i class="fa-solid fa-heart"></i></span>
+        <span><i class="fa-solid fa-plus"></i></span>
+    </div>
+
+    <main class="card">
+        <header class="card-header">
+            <div class="logo-wrap">
+                <img src="kasa.png" alt="Agnes Memorial Hospital Center logo" onerror="this.outerHTML='<i class=\'fa-solid fa-house-medical fallback\'></i>'">
+            </div>
+            <h1 class="shine-title">WELCOME TO AGNES MEMORIAL HOSPITAL CENTER</h1>
+            <p class="motto"><i class="fa-solid fa-heart"></i>We listen, we care<i class="fa-solid fa-heart"></i></p>
+        </header>
+
+        <svg class="pulse" viewBox="0 0 360 60" aria-hidden="true">
+            <path d="M0 32 H110 L128 32 L142 8 L162 54 L178 20 L190 32 H360" />
+        </svg>
+
+        <div class="btn-wrap">
+            <a href="hospital-login.html" class="login-btn">
+                <span class="icon-bubble"><i class="fa-solid fa-user-doctor"></i></span>
+                Login to hospital portal
+                <i class="fa-solid fa-arrow-right arrow"></i>
+            </a>
+        </div>
+
+        <div class="features">
+            <div class="feature"><i class="fa-solid fa-user-nurse"></i>Caring staff</div>
+            <div class="feature"><i class="fa-solid fa-shield-heart"></i>Safe records</div>
+            <div class="feature"><i class="fa-solid fa-clock"></i>Always here</div>
+        </div>
+
+        <p class="mission"><i class="fa-solid fa-hand-holding-heart"></i><strong>Our mission:</strong> patient centered health care service</p>
+    </main>
+
+    <div class="waves" aria-hidden="true">
+        <svg class="back" viewBox="0 0 1200 110" preserveAspectRatio="none"><path d="M0 60 Q150 10 300 60 T600 60 T900 60 T1200 60 V110 H0Z" fill="#7fdcd8"/></svg>
+        <svg class="front" viewBox="0 0 1200 110" preserveAspectRatio="none"><path d="M0 70 Q150 30 300 70 T600 70 T900 70 T1200 70 V110 H0Z" fill="#ffffff"/></svg>
+    </div>
+
+    <script>
+        // Safety net: if a device's text size or a tiny window makes the card taller
+        // than the screen, shrink the whole card just enough to fit. No scrolling.
+        (function () {
+            var card = document.querySelector('.card');
+            function fit() {
+                card.style.transform = '';
+                var vv = window.visualViewport;
+                var availH = (vv ? vv.height : window.innerHeight) - 16;
+                var availW = (vv ? vv.width : window.innerWidth) - 16;
+                var scale = Math.min(1, availH / card.offsetHeight, availW / card.offsetWidth);
+                if (scale < 1) card.style.transform = 'scale(' + scale + ')';
+            }
+            window.addEventListener('load', fit);
+            window.addEventListener('resize', fit);
+            window.addEventListener('orientationchange', fit);
+            if (window.visualViewport) window.visualViewport.addEventListener('resize', fit);
+            if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+            fit();
+        })();
+    </script>
+</body>
+</html>
