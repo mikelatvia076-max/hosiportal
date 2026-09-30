@@ -1,0 +1,26 @@
+/* Agnes Memorial Hospital app: install banner + offline lock screen */
+.pwa-banner{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;gap:12px;padding:10px 16px;background:linear-gradient(90deg,#075985,#0284c7);color:#fff;font-family:'Segoe UI',sans-serif;box-shadow:0 3px 14px rgba(6,78,110,.35)}
+.pwa-banner[hidden]{display:none}
+.pwa-banner img{width:44px;height:44px;border-radius:11px;flex:none;box-shadow:0 0 0 2px rgba(255,255,255,.35)}
+.pwa-banner .pb-text{display:flex;flex-direction:column;flex:1;min-width:0;line-height:1.3}
+.pwa-banner strong{font-size:15px}
+.pwa-banner span{font-size:13px;color:#e0f2fe}
+.pwa-banner .pb-install{flex:none;border:0;border-radius:22px;padding:9px 16px;background:#fff;color:#064e6e;font-size:14px;font-weight:700;cursor:pointer;transition:.2s}
+.pwa-banner .pb-install:hover{background:#fde68a}
+.pwa-banner .pb-close{flex:none;width:32px;height:32px;border:0;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;font-size:15px;cursor:pointer}
+.pwa-banner .pb-close:hover{background:rgba(255,255,255,.32)}
+body.has-install-banner{padding-top:calc(72px + 15px)!important}
+@media(max-width:640px){.pwa-banner{padding:9px 12px;gap:10px}.pwa-banner img{width:38px;height:38px}.pwa-banner span{font-size:12px}}
+
+dialog.pwa-offline{width:100vw;max-width:none;height:100dvh;max-height:none;margin:0;border:0;border-radius:0;padding:24px;color:#fff;text-align:center;font-family:'Segoe UI',sans-serif;
+  background:radial-gradient(600px 400px at 50% 0%,#0284c7 0%,transparent 70%),#064e6e}
+dialog.pwa-offline[open]{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+dialog.pwa-offline::backdrop{background:#064e6e}
+dialog.pwa-offline svg{width:min(240px,70vw);margin-bottom:6px}
+dialog.pwa-offline h2{font-size:28px;margin:0;color:#fff}
+dialog.pwa-offline p{max-width:380px;font-size:16px;line-height:1.5;color:#bae6fd;margin:0}
+dialog.pwa-offline .po-msg{font-size:14px;min-height:20px;color:#fde68a}
+dialog.pwa-offline button{border:0;border-radius:24px;padding:12px 28px;background:#fde68a;color:#064e6e;font-size:16px;font-weight:700;cursor:pointer;transition:.2s}
+dialog.pwa-offline button:hover{background:#fff}
+dialog.pwa-offline button:disabled{opacity:.7;cursor:wait}
+@media (display-mode:standalone){.pwa-banner{display:none!important}}
